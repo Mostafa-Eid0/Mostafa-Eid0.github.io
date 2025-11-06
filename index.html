@@ -1,90 +1,88 @@
-<!doctype html>
-<html lang="ar">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mostafa — موقع شخصي</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mostafa Eid</title>
   <style>
-    :root{
-      --bg: #0f1724;
-      --card: #0b1220;
-      --accent: #06b6d4;
-      --muted: #9aa6b2;
-      --glass: rgba(255,255,255,0.03);
-      font-family: system-ui, "Segoe UI", Roboto, "Noto Kufi Arabic", "Noto Sans", sans-serif;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Cairo", sans-serif;
+      background: linear-gradient(135deg, #0a0a0a, #1f1f1f);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
     }
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071427 0%, #071a2a 100%);color:#e6eef6;direction:rtl}
-    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:28px}
-    .card{width:100%;max-width:760px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;box-shadow:0 8px 30px rgba(2,6,23,0.6);padding:36px;display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center}
-    .avatar{width:120px;height:120px;border-radius:14px;overflow:hidden;border:2px solid rgba(255,255,255,0.04);background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px}
-    .name{font-size:22px;font-weight:700;margin:0 0 6px}
-    .role{color:var(--muted);margin:0 0 14px}
-    .desc{margin:0 0 18px;color:#cfe6ef;line-height:1.5}
-    .links{display:flex;flex-wrap:wrap;gap:10px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);text-decoration:none;color:inherit;font-weight:600}
-    .btn.primary{background:linear-gradient(90deg,var(--accent),#7c3aed);color:#041021;box-shadow:0 6px 18px rgba(6,182,212,0.12)}
-    .socials{display:flex;gap:10px;margin-top:6px}
-    .socials a{opacity:0.95;text-decoration:none;padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);font-weight:600}
-    .footer{margin-top:18px;color:var(--muted);font-size:13px}
-    @media(max-width:520px){.card{grid-template-columns:1fr;text-align:center}.avatar{margin:0 auto}}
+
+    .container {
+      max-width: 400px;
+      padding: 20px;
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 3px solid #25D366;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      margin: 10px 0 5px;
+      font-size: 28px;
+    }
+
+    p {
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .icon:hover {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+
+    .whatsapp { background: #25D366; }
+    .telegram { background: #0088cc; }
+    .facebook { background: #1877f2; }
   </style>
+  <script src="https://kit.fontawesome.com/8a4d3e6c2a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="wrap">
-    <article class="card">
-      <div class="avatar" id="avatar">
-        <!-- لو ما عندكش صورة، خلي الأحرف الأولى -->
-        M
-      </div>
-      <div>
-        <h1 class="name" id="site-name">Mostafa Eid</h1>
-        <div class="role" id="site-role">مطور تطبيقات أندرويد — ExpenseTracker</div>
-        <p class="desc" id="site-desc">مرحبا! أنا مصطفى — أطور تطبيقات أندرويد، أشارك شروحات وأمثلة عن تطوير التطبيقات والأدوات.</p>
-
-        <div class="links">
-          <!-- زر واتساب -->
-          <a class="btn primary" href="https://wa.me/201119598342" target="_blank" rel="noopener">
-            تواصل عبر واتساب
-          </a>
-
-          <!-- رابط للمشاريع أو GitHub -->
-          <a class="btn" href="https://github.com/mostafaeid" target="_blank" rel="noopener">مشاريعي على GitHub</a>
-
-          <!-- زر نسخ رابط الصفحة -->
-          <a class="btn" href="#" id="copy-link">نسخ رابط الصفحة</a>
-        </div>
-
-        <div class="socials" style="justify-content:flex-start">
-          <a href="https://t.me/mostafaeid" target="_blank" rel="noopener">Telegram</a>
-          <a href="mailto:mostafa@example.com">Email</a>
-        </div>
-
-        <div class="footer">تم الإنشاء بواسطة قالب خفيف — يمكنك تعديل النصوص والصور بسرعة.</div>
-      </div>
-    </article>
+  <div class="container">
+    <img src="avatar.jpg" alt="Mostafa" class="avatar" onerror="this.src='https://via.placeholder.com/130?text=M';">
+    <h1>Mostafa Eid</h1>
+    <p>أهلاً بيك في صفحتي الشخصية 👋</p>
+    <div class="social-icons">
+      <a href="https://wa.me/201119598342?text=أهلاً%20مصطفى%20،%20شرفتني%20برسالتك%20🙌" class="icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://t.me/Mostafa_0Ei" class="icon telegram"><i class="fab fa-telegram-plane"></i></a>
+      <a href="https://www.facebook.com/share/1FqVGmbjaV/" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
   </div>
-
-  <script>
-    // زر نسخ رابط الصفحة
-    document.getElementById('copy-link').addEventListener('click', function(e){
-      e.preventDefault();
-      const url = location.href;
-      navigator.clipboard?.writeText(url).then(()=> {
-        this.textContent = 'تم النسخ!';
-        setTimeout(()=> this.textContent = 'نسخ رابط الصفحة', 1500);
-      }).catch(()=> alert('مثبتش النسخ — انسخ الرابط يدويًا: ' + url));
-    });
-
-    // لو عايز تغير الصورة بسهولة: ضع صورة في نفس المجلد باسم avatar.jpg
-    (function(){
-      const avatarEl = document.getElementById('avatar');
-      fetch('avatar.jpg', {method:'HEAD'}).then(r=>{
-        if(r.ok){
-          avatarEl.style.background = 'none';
-          avatarEl.innerHTML = '<img src="avatar.jpg" alt="avatar" style="width:100%;height:100%;object-fit:cover;border-radius:12px">';
-        }
-      }).catch(()=>{ /* مفيش صورة، خلي الحرف */ });
-    })();
-  </script>
 </body>
 </html>
