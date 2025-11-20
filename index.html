@@ -1,88 +1,231 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!doctype html>
+<html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mostafa Eid</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Cairo", sans-serif;
-      background: linear-gradient(135deg, #0a0a0a, #1f1f1f);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Alex Murphy — Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#ff8fcf;
+    --dark:#0b0b0b;
+    --accent:#25a89f;
+    --btn1:#ffb6dd;
+    --btn2:#8fe1ff;
+    --btn3:#ffbb88;
+  }
+  html,body{height:100%;margin:0;padding:0;background:var(--pink);}
+  body{
+    font-family: "Montserrat", system-ui, sans-serif;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding:18px 12px;
+    box-sizing:border-box;
+    color:var(--dark);
+  }
 
-    .container {
-      max-width: 400px;
-      padding: 20px;
-    }
+  /* Card container */
+  .card-wrap{
+    width:100%;
+    max-width:420px; /* good for mobile */
+    background:white;
+    border-left:10px solid #000; /* thin black frame like image */
+    border-right:10px solid #000;
+    box-shadow: 0 0 0 6px #000 inset;
+    position:relative;
+  }
 
-    .avatar {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      border: 3px solid #25D366;
-      object-fit: cover;
-      margin-bottom: 15px;
-    }
+  /* Inner white area with padding and thin black border inside */
+  .card{
+    padding:26px 26px 40px;
+    box-sizing:border-box;
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+    min-height:580px;
+  }
 
-    h1 {
-      margin: 10px 0 5px;
-      font-size: 28px;
-    }
+  /* circle avatar overlapping top */
+  .avatar-wrap{
+    display:flex;
+    justify-content:center;
+    margin-top:-58px;
+  }
+  .avatar{
+    width:120px;
+    height:120px;
+    border-radius:999px;
+    border:6px solid #000;
+    overflow:hidden;
+    background:linear-gradient(180deg,#eee,#ddd);
+    box-sizing:border-box;
+  }
+  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
 
-    p {
-      color: #aaa;
-      margin-bottom: 25px;
-    }
+  /* Name */
+  .name{
+    text-align:center;
+    margin-top:12px;
+    font-size:42px;
+    font-weight:800;
+    letter-spacing:0.5px;
+    background: repeating-linear-gradient(90deg,#ddd 0 100%, #ddd 0);
+    display:inline-block;
+    padding:10px 18px;
+    border:3px dashed rgba(0,0,0,0.12);
+  }
 
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+  .underline{
+    width:70%;
+    height:6px;
+    background:var(--accent);
+    margin:12px auto 20px;
+    border-radius:3px;
+  }
 
-    .icon {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      color: white;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+  /* description */
+  .desc{
+    max-width:86%;
+    margin:0 auto 26px;
+    text-align:center;
+    line-height:1.9;
+    font-size:17px;
+    color:#222;
+  }
+  .desc a{color:var(--pink); text-decoration:underline;}
 
-    .icon:hover {
-      transform: scale(1.1);
-      opacity: 0.9;
-    }
+  /* buttons column */
+  .buttons{
+    width:95%;
+    margin:18px auto 26px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .btn{
+    position:relative;
+    padding:18px 22px;
+    border:4px solid #000;
+    border-bottom-width:8px;
+    box-shadow: 0 6px 0 0 #000;
+    border-radius:4px;
+    font-size:20px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    cursor:pointer;
+    text-decoration:none;
+    color:var(--dark);
+  }
+  .btn .ico{
+    width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;
+    font-size:18px;
+  }
 
-    .whatsapp { background: #25D366; }
-    .telegram { background: #0088cc; }
-    .facebook { background: #1877f2; }
-  </style>
-  <script src="https://kit.fontawesome.com/8a4d3e6c2a.js" crossorigin="anonymous"></script>
+  .btn.call{ background:var(--btn1); }
+  .btn.msg { background:var(--btn2); }
+  .btn.mail{ background:var(--btn3); }
+
+  /* bottom separator and social row */
+  .sep{
+    height:1px;
+    background:#000;
+    margin:22px 0 0;
+    width:100%;
+  }
+  .socials{
+    display:flex;
+    gap:18px;
+    justify-content:center;
+    align-items:center;
+    padding:18px 12px 24px;
+  }
+  .socials .s{
+    width:38px;height:38px;border-radius:999px;border:2px solid #000;display:flex;align-items:center;justify-content:center;
+    font-size:18px;
+    background:white;
+  }
+
+  /* responsive smaller name on small screens */
+  @media (max-width:360px){
+    .name{font-size:34px;padding:8px 12px}
+    .desc{font-size:15px}
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <img src="avatar.jpg" alt="Mostafa" class="avatar" onerror="this.src='https://via.placeholder.com/130?text=M';">
-    <h1>Mostafa Eid</h1>
-    <p>أهلاً بيك في صفحتي الشخصية 👋</p>
-    <div class="social-icons">
-      <a href="https://wa.me/201119598342?text=أهلاً%20مصطفى%20،%20شرفتني%20برسالتك%20🙌" class="icon whatsapp"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://t.me/Mostafa_0Ei" class="icon telegram"><i class="fab fa-telegram-plane"></i></a>
-      <a href="https://www.facebook.com/share/1FqVGmbjaV/" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
+  <div class="card-wrap" dir="ltr">
+    <div class="card" dir="rtl">
+      <div class="avatar-wrap">
+        <div class="avatar">
+          <!-- placeholder photo: replace src with your image -->
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="avatar">
+        </div>
+      </div>
+
+      <h1 class="name" dir="auto">Alex Murphy</h1>
+
+      <div class="underline" aria-hidden="true"></div>
+
+      <p class="desc" dir="auto">
+        Ornare consectetur ata <a href="#">interdum consectetur</a>, ligula diam iaculis non 
+        <a href="#">lorem magna</a> magna et morbi. Curabitur turpis porttitor primis venenatis dictum eu aliquam.
+      </p>
+
+      <div class="buttons" dir="ltr">
+        <a class="btn call" href="tel:+123456789">
+          <span>Call</span>
+          <span class="ico" aria-hidden="true">
+            <!-- phone svg -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.99.38 1.95.77 2.86a2 2 0 0 1-.45 2.11L9.91 10.09a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.11-.45c.91.39 1.87.65 2.86.77A2 2 0 0 1 22 16.92z"></path></svg>
+          </span>
+        </a>
+
+        <a class="btn msg" href="sms:+123456789">
+          <span>Message</span>
+          <span class="ico" aria-hidden="true">
+            <!-- chat svg -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </span>
+        </a>
+
+        <a class="btn mail" href="mailto:alex@example.com">
+          <span>Email</span>
+          <span class="ico" aria-hidden="true">
+            <!-- mail svg -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="sep" role="presentation"></div>
+
+      <div class="socials" aria-label="social links">
+        <a class="s" href="#" title="Instagram" aria-hidden="false">
+          <!-- simple IG icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+        </a>
+        <a class="s" href="#" title="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a4 4 0 0 0-4 4v3H8v4h3v8h4v-8h3l1-4h-4V6a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+        <a class="s" href="#" title="TikTok">
+          <!-- simple music note -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17a4 4 0 1 0 4-4h3V3"></path></svg>
+        </a>
+        <a class="s" href="#" title="X/Twitter">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4.01c-.8.36-1.66.6-2.56.71a4.48 4.48 0 0 0-7.66 3v1A10.66 10.66 0 0 1 3 5s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5v-1A7.72 7.72 0 0 0 23 4.01z"></path></svg>
+        </a>
+        <a class="s" href="#" title="Pinterest">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 21c-.4-1.5-.7-3.1 0-4.5 1-2.3 3.3-5 1.2-10.2-1.2-3.1-6.1-3.2-7.4.5-1.3 3.6 1.1 6.1.9 9.4-.1 1.3-.8 4.4-1 5.8"></path></svg>
+        </a>
+        <a class="s" href="#" title="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"></rect><path d="M16 11.5v5.5"></path><path d="M8 11.5v5.5"></path><path d="M8 7.5h.01"></path></svg>
+        </a>
+      </div>
+
     </div>
   </div>
+
 </body>
 </html>
